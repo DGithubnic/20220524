@@ -28,7 +28,7 @@ public:
 	}
 	void Reset()
 	{
-		for (int Cursor2 = 0; Cursor2 <= 9; ++Cursor2)
+		for (int Cursor2 = 0; Cursor2 <= 8; ++Cursor2)
 		{
 			Database[Cursor2] = Database[Cursor2 + 1];
 		}
