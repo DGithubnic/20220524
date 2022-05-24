@@ -20,38 +20,40 @@ public:
 	T Database[10];
 
 	int Cursor1 = -1;
-	int Cursor2 = 0;
+	int Cursor2 = -1;
 
-	void Push(T A)
+	void Queuef(T A)
 	{
 		Database[++Cursor1] = A;
 	}
-
-	void Pop()
+	void Reset()
 	{
-		Cursor2++;
+		for (int Cursor2 = 0; Cursor2 <= 9; ++Cursor2)
+		{
+			Database[Cursor2] = Database[Cursor2 + 1];
+		}
 	}
 
-	T Bottom()
+	T DeQueuef()
 	{
-		return Database[Cursor2];
+		return Database[0];
 	}
 };
 
 
 int main()
 {
-	Queue<float> IntQueue;
+	Queue<int> IntQueue;
 
 	for (int i = 1; i <= 10; ++i)
 	{
-		IntQueue.Push(i * 1.1f);
+		IntQueue.Queuef(i);
 	}
 
 	for (int i = 1; i <= 10; ++i)
 	{
-		cout << IntQueue.Bottom() << ", ";
-		IntQueue.Pop();
+		cout << IntQueue.DeQueuef() << ", ";
+		IntQueue.Reset();
 	}
 
 
