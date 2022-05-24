@@ -10,8 +10,6 @@ using namespace std;
 //# # #						3,1
 //#  P#						2,1
 //#####						1,1
-int Size = 10;
-
 
 template<typename T>
 class Queue
