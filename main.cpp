@@ -10,6 +10,9 @@ using namespace std;
 //# # #						3,1
 //#  P#						2,1
 //#####						1,1
+int Size = 10;
+
+
 template<typename T>
 class Queue
 {
@@ -17,7 +20,7 @@ public:
 	Queue() {}
 	virtual ~Queue() {}
 
-	T Database[10];
+	T* Database = new T[10];
 
 	int Cursor1 = -1;
 	int Cursor2 = -1;
@@ -26,11 +29,14 @@ public:
 	{
 		Database[++Cursor1] = A;
 	}
+
 	void Reset()
 	{
-		for (int Cursor2 = 0; Cursor2 <= 8; ++Cursor2)
+		for (int i = 0; i <= 8; ++i)
 		{
-			Database[Cursor2] = Database[Cursor2 + 1];
+			int Temp = Database[i];
+			Database[i] = Database[i + 1];
+			Database[i + 1] = Temp;
 		}
 	}
 
@@ -43,6 +49,7 @@ public:
 
 int main()
 {
+
 	Queue<int> IntQueue;
 
 	for (int i = 1; i <= 10; ++i)
